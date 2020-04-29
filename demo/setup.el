@@ -1,3 +1,5 @@
+(package-initialize)
+
 (require 'ox-beamer)
 
 (setq startup-dir (with-current-buffer "*Messages*" default-directory))
