@@ -1,0 +1,96 @@
+# -*- ispell-dictionary: "castellano" -*-
+
+#+STARTUP: indent hidestars content beamer
+
+#+AUTHOR: A.U. Thor
+#+DATE: Curso 2019--2020
+
+#+OPTIONS: toc:nil ':t *:t ^:{} num:1 H:2
+
+#+LANGUAGE: es
+#+LATEX_HEADER: \usepackage[AUTO]{babel}
+
+#+LATEX_CLASS: beamer
+#+LATEX_CLASS_OPTIONS: [aspectratio=169, 14pt]
+#+BEAMER_THEME: macondo
+
+#+COLUMNS: %45ITEM %10BEAMER_ENV(Env) %10BEAMER_ACT(Act) %4BEAMER_COL(Col)
+
+
+#+TITLE: Un título
+
+* Una sección
+
+** Una fórmula
+
+Exceso de gravamen:
+#+begin_export latex
+\[
+  \operatorname{EG} = -\frac{1}{2} \eta \tau^2 P Q
+\]
+#+end_export
+donde:
+- $\eta$: elasticidad de la demanda compensada,
+- $\tau$: tasa impositiva.
+
+
+** Gráfico                                            :B_fullframe:noexport:
+:PROPERTIES:
+:BEAMER_env: fullframe
+:END:
+
+#+begin_export latex
+\begin{center}
+  \begin{tikzpicture}
+    \draw[help lines, visible on=<4->] (0, 2.75) node[left] {$P^*$} -|
+      (2.75, 0) node[below] {$Q^*$} ;
+
+    \draw[curve B, visible on=<2->] (0.5, 5) -- (5, 0.5) node[right] {$D$}
+    ;
+
+    \draw[curve D, visible on=<3->] (0.5, 0.5) -- (5, 5) node[right] {$S$}
+    ;
+
+    \node[dot, visible on=<4->] at (2.75, 2.75) {} ;
+
+    \draw[axis] (0, 6) node[left]{$P$} |- (6, 0) node[below]{$Q$};
+  \end{tikzpicture}
+\end{center}
+#+end_export
+
+
+** Un lista
+
+- Eficiencia
+- Sencillez administrativa
+- Flexibilidad
+- Transparencia
+- Justicia
+
+** Otra lista con números
+
+1. Eficiencia
+2. Sencillez administrativa
+3. Flexibilidad
+4. Transparencia
+5. Justicia
+
+** Descripciones
+
+- Cosa :: un algo.
+
+- Nada :: no cosa.
+
+
+* Otra sección
+
+** Párrafos
+
+Un párrafo sin mucho sentido pero con las suficientes palabras como
+para que ocupe más de una línea.
+
+Un segundo párrafo sin mucho sentido pero con las suficientes palabras
+como para que ocupe más de una línea.
+
+Un tercer párrafo sin mucho sentido pero con las suficientes palabras
+como para que ocupe más de una línea.
