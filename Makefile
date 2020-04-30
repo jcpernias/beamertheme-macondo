@@ -5,23 +5,30 @@ SHELL := /bin/sh
 ## Directories
 ## ================================================================================
 
-root-dir := .
-demo-dir := $(root-dir)/demo
-build-dir := $(demo-dir)/build
-out-dir := $(demo-dir)
+DESTDIR := $(shell kpsewhich -var-value=TEXMFHOME)
 
 ## Binaries
 ## ================================================================================
 
 EMACS := emacs
 ENV := env
+INSTALL := install
 
 -include local.mk
 
 
+# newline
 define n
 
 
+endef
+
+# Update kpathsea database
+define update-kpathsea
+if [ -f $(DESTDIR)/ls-R ]; \
+then \
+	mktexlsr $(DESTDIR); \
+fi;
 endef
 
 $(info $n-----------------------------------------------------------------)
@@ -34,6 +41,14 @@ $(info -----------------------------------------------------------------$n)
 ## Variables
 ## ================================================================================
 
+root-dir := .
+demo-dir := $(root-dir)/demo
+build-dir := $(demo-dir)/build
+out-dir := $(demo-dir)
+install-dir := $(DESTDIR)/tex/latex/beamertheme-macondo
+doc-dir := $(DESTDIR)/doc/latex/beamertheme-macondo
+
+
 EMACS_FLAGS := -Q -nw --batch
 emacs-loads := --load=$(demo-dir)/setup.el
 org-to-beamer := \
@@ -45,16 +60,19 @@ TEXI2DVI_FLAGS := --batch $(TEXI2DVI_SILENT) \
 	-I $(demo-dir) --pdf --build=tidy \
 	--build-dir=$(subst ./,,$(build-dir))
 
-beamer-theme-files := \
+sty-files := \
 	$(root-dir)/beamercolorthememacondo.sty \
 	$(root-dir)/beamerfontthememacondo.sty \
 	$(root-dir)/beamerinnerthememacondo.sty \
 	$(root-dir)/beamerouterthememacondo.sty \
 	$(root-dir)/beamerthememacondo.sty \
 
-pdf-deps := $(beamer-theme-files) $(demo-dir)/preamble.tex
 
-all: $(out-dir)/demo.pdf
+demo-deps := $(sty-files)
+
+all: demo
+
+demo: $(out-dir)/demo.pdf
 
 # org to latex
 .PRECIOUS: $(build-dir)/%.tex
@@ -64,6 +82,15 @@ $(build-dir)/%.tex: $(demo-dir)/%.org | $(build-dir)
 ## latex to pdf
 $(out-dir)/%.pdf: $(build-dir)/%.tex $(pdf_deps)| $(outdir)
 	$(TEXI2DVI_ENV) $(TEXI2DVI) $(TEXI2DVI_FLAGS) --output=$@ $<
+
+install:
+	$(INSTALL) -d $(install-dir)
+	$(INSTALL) -m 644 $(sty-files) $(install-dir)
+	$(update-kpathsea)
+
+uninstall:
+	-@rm -rf $(install-dir)
+	$(update-kpathsea)
 
 ## Auxiliary directories
 ## --------------------------------------------------------------------------------
