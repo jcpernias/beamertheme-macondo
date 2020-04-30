@@ -44,7 +44,7 @@ $(info -----------------------------------------------------------------$n)
 root-dir := .
 demo-dir := $(root-dir)/demo
 build-dir := $(demo-dir)/build
-out-dir := $(demo-dir)
+pdf-dir := $(demo-dir)
 install-dir := $(DESTDIR)/tex/latex/beamertheme-macondo
 doc-dir := $(DESTDIR)/doc/latex/beamertheme-macondo
 
@@ -72,7 +72,7 @@ demo-deps := $(sty-files)
 
 all: demo
 
-demo: $(out-dir)/demo.pdf
+demo: $(pdf-dir)/demo.pdf
 
 # org to latex
 .PRECIOUS: $(build-dir)/%.tex
@@ -80,7 +80,7 @@ $(build-dir)/%.tex: $(demo-dir)/%.org | $(build-dir)
 	$(EMACS) $(EMACS_FLAGS) $(emacs-loads) --visit=$< $(org-to-beamer)
 
 ## latex to pdf
-$(out-dir)/%.pdf: $(build-dir)/%.tex $(pdf_deps)| $(outdir)
+$(pdf-dir)/%.pdf: $(build-dir)/%.tex $(pdf_deps)| $(outdir)
 	$(TEXI2DVI_ENV) $(TEXI2DVI) $(TEXI2DVI_FLAGS) --output=$@ $<
 
 install:
@@ -109,4 +109,4 @@ clean:
 
 .PHONY: veryclean
 veryclean: clean
-	-@rm -rf $(out-dir)/demo.pdf
+	-@rm -rf $(pdf-dir)/demo.pdf
