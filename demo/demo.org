@@ -21,6 +21,7 @@
 
 * Una sección
 
+
 ** Una fórmula
 
 Exceso de gravamen:
@@ -59,13 +60,14 @@ donde:
 #+end_export
 
 
-** Un lista
+** Una lista
 
 - Eficiencia
 - Sencillez administrativa
 - Flexibilidad
 - Transparencia
 - Justicia
+
 
 ** Otra lista con números
 
@@ -75,6 +77,7 @@ donde:
 4. Transparencia
 5. Justicia
 
+
 ** Descripciones
 
 - Cosa :: un algo.
@@ -83,6 +86,7 @@ donde:
 
 
 * Otra sección
+
 
 ** Párrafos
 
@@ -94,6 +98,7 @@ como para que ocupe más de una línea.
 
 Un tercer párrafo sin mucho sentido pero con las suficientes palabras
 como para que ocupe más de una línea.
+
 
 ** Énfasis
 
