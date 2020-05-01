@@ -74,7 +74,7 @@ $(build-dir)/%.tex: $(demo-dir)/%.org | $(build-dir)
 	$(EMACS) $(EMACS_FLAGS) $(emacs-loads) --visit=$< $(org-to-beamer)
 
 ## latex to pdf
-$(pdf-dir)/%.pdf: $(build-dir)/%.tex $(pdf_deps)| $(outdir)
+$(pdf-dir)/%.pdf: $(build-dir)/%.tex $(sty-files)| $(outdir)
 	$(TEXI2DVI) $(TEXI2DVI_FLAGS) --output=$@ $<
 
 install:
