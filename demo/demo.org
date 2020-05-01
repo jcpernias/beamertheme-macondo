@@ -5,9 +5,8 @@
 #+AUTHOR: A.U. Thor
 #+DATE: Curso 2019--2020
 
-#+OPTIONS: toc:nil ':t *:t ^:{} num:1 H:2
+#+OPTIONS: toc:nil ':t *:t ^:{} ~:t num:1 H:2 tex:t |:t
 
-#+LANGUAGE: es
 #+LATEX_HEADER: \usepackage[AUTO]{babel}
 
 #+LATEX_CLASS: beamer
