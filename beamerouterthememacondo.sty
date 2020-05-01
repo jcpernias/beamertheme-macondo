@@ -1,5 +1,7 @@
 \mode<presentation>
 
+\RequirePackage{etoolbox}
+
 \newlength{\macondo@margin}
 \setlength{\macondo@margin}{0.01\paperwidth}
 
@@ -19,6 +21,14 @@
     ]{frametitle}%
     \strut\insertframetitle\strut%
   \end{beamercolorbox}%
+}
+
+\BeforeBeginEnvironment{frame}{%
+  \setbeamertemplate{frametitle}[macondo]%
+}
+
+\define@key{beamerframe}{titlecenter}[true]{%
+  \setbeamertemplate{frametitle}[macondo][center]%
 }
 
 \mode

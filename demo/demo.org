@@ -107,3 +107,17 @@ para que ocupe más de una línea.
 
 Un /segundo/ párrafo sin mucho sentido pero con las suficientes palabras
 como para que ocupe más de una línea.
+
+** Un título centrado
+:PROPERTIES:
+:BEAMER_OPT: titlecenter
+:END:
+
+Un párrafo sin mucho sentido pero con las suficientes palabras como
+para que ocupe más de una línea.
+
+Un segundo párrafo sin mucho sentido pero con las suficientes palabras
+como para que ocupe más de una línea.
+
+Un tercer párrafo sin mucho sentido pero con las suficientes palabras
+como para que ocupe más de una línea.
