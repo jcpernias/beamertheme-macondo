@@ -1,6 +1,25 @@
 \mode<presentation>
 
+\newlength{\macondo@margin}
+\setlength{\macondo@margin}{0.01\paperwidth}
+
 \beamertemplatenavigationsymbolsempty
+
+\setbeamersize{text margin left=\macondo@margin,%
+  text margin right=\macondo@margin}
+
+\defbeamertemplate*{frametitle}{macondo}[1][left]{%
+  \usebeamerfont{frametitle}%
+  \hskip-1pt%
+  \begin{beamercolorbox}[%
+    wd=\textwidth,%
+    sep=0pt,%
+    ht=2.25ex, dp=1ex,%
+    #1
+    ]{frametitle}%
+    \strut\insertframetitle\strut%
+  \end{beamercolorbox}%
+}
 
 \mode
 <all>
