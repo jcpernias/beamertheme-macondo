@@ -2,7 +2,7 @@
 
 (require 'ox-beamer)
 
-(setq org-beamer-frame-default-options "t")
+(setq org-beamer-frame-default-options "")
 
 (setq startup-dir (with-current-buffer "*Messages*" default-directory))
 (defun tobeamer (&optional dir)

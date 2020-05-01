@@ -11,7 +11,7 @@
 #+LATEX_HEADER: \usepackage[AUTO]{babel}
 
 #+LATEX_CLASS: beamer
-#+LATEX_CLASS_OPTIONS: [aspectratio=169, 14pt]
+#+LATEX_CLASS_OPTIONS: [aspectratio=169, 14pt, t]
 #+BEAMER_THEME: macondo
 
 #+COLUMNS: %45ITEM %10BEAMER_ENV(Env) %10BEAMER_ACT(Act) %4BEAMER_COL(Col)
