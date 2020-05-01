@@ -2,6 +2,8 @@
 
 (require 'ox-beamer)
 
+(setq org-beamer-frame-default-options "t")
+
 (setq startup-dir (with-current-buffer "*Messages*" default-directory))
 (defun tobeamer (&optional dir)
   "Export current org buffer to a latex file in directory DIR."
